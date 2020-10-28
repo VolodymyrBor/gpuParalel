@@ -26,7 +26,7 @@ def increment_by_one(array: np.ndarray):
 
 
 # create an array
-an_array = np.array(range(100_000))
+an_array = np.zeros((100_000, )).astype(np.float32)
 an_array_copy = an_array.copy()
 print(an_array)
 
