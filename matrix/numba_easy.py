@@ -1,3 +1,5 @@
+import math
+
 import numpy as np
 from numba import cuda
 
@@ -32,7 +34,7 @@ print(an_array)
 
 # blocks and treads
 treads_pre_block = 64
-blocks_pre_grid = (an_array.size + (treads_pre_block - 1)) // treads_pre_block
+blocks_pre_grid = math.ceil(an_array.size / treads_pre_block)
 
 
 print('[' + '.' * 30 + 'GPU' + '.' * 30 + ']')

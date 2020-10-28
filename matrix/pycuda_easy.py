@@ -1,3 +1,5 @@
+import math
+
 import numpy as np
 import pycuda.autoinit
 from pycuda import driver as drv
@@ -22,7 +24,7 @@ an_array_copy = an_array.copy()
 
 print('[' + '.' * 30 + 'GPU' + '.' * 30 + ']')
 treads_pre_block = 64
-block_pre_grid = (an_array.size + (treads_pre_block - 1)) // treads_pre_block
+block_pre_grid = math.ceil(an_array.size / treads_pre_block)
 
 for _ in range(3):
     with measure_time('GPU'):
